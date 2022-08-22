@@ -1,2 +1,2 @@
-# battleship  
+# BattleShip  
 Battleship game in Java.
