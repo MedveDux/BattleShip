@@ -1,4 +1,4 @@
-package battleship;
+package BattleShip;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ public class Clear {
         System.out.println("Press Enter and pass the move to another player");
         try {
             System.in.read();
-//            clearConsole();
+            clearConsole();
         } catch (IOException e) {
             e.printStackTrace();
         }

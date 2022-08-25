@@ -1,4 +1,4 @@
-package battleship;
+package BattleShip;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
@@ -7,7 +7,11 @@ import java.util.Objects;
     protected String coordinate;
     private int count = 17;
 
-    public int Shooting (Shoot firstFog) {
+        public int getCount() {
+            return this.count;
+        }
+
+        public void Shooting (Shoot firstFog) {
         String[] coordinate = this.coordinate.split("",2);
 
         if (!checkСoordinate(coordinate)) {
@@ -42,9 +46,7 @@ import java.util.Objects;
                     }
                 }
             }
-            return (count);
         }
-        return (count);
     }
 
     public boolean checkСoordinate(String[] coordinate){

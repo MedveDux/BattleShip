@@ -1,8 +1,8 @@
-package battleship;
+package BattleShip;
 
 import java.util.Scanner;
 
-import static battleship.Clear.promptEnterKey;
+import static BattleShip.Clear.promptEnterKey;
 
 public class Main{
 
@@ -55,8 +55,8 @@ public class Main{
 
 
 
-        int count = 1, index = 0;
-        while (count != 0) {
+        int index = 0;
+        while (firstPlayer.getCount() != 0 || secondPlayer.getCount() != 0) {
             if (index++  % 2 == 0) {
                 secondFog.printingMap(true);//
                 System.out.println("---------------------");
@@ -64,7 +64,7 @@ public class Main{
                 System.out.println("Player 1, it's your turn:");
                 coordinate = scanner.next();
                 secondPlayer.setCoordinate(coordinate);
-                count = secondPlayer.Shooting(secondFog);
+                secondPlayer.Shooting(secondFog);
             } else {
                 firstFog.printingMap(true);//
                 System.out.println("---------------------");
@@ -72,7 +72,7 @@ public class Main{
                 System.out.println("Player 2, it's your turn:");
                 coordinate = scanner.next();
                 firstPlayer.setCoordinate(coordinate);
-                count = firstPlayer.Shooting(firstFog);
+                firstPlayer.Shooting(firstFog);
             }
             promptEnterKey();
         }
