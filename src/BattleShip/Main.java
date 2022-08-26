@@ -12,70 +12,39 @@ public class Main{
         Shoot secondPlayer = new Shoot();
         Shoot firstFog = new Shoot();
         Shoot secondFog = new Shoot();
-        boolean error = false;
-        String firstCoordinate, secondCoordinate, coordinate;
-        String[] name = {"Aircraft Carrier", "Battleship", "Submarine", "Cruiser", "Destroyer"};
-        int[] len = {5, 4, 3, 3, 2};
+
 
         System.out.println("Player 1, place your ships on the game field");
-        for (int i = 0; i < name.length; i++) {
-            if (!error) {
-                firstPlayer.printingMap();
-                System.out.println("Enter the coordinates of the " + name[i] + " ("+  len[i] + " cells):");
-            }
-            firstCoordinate = scanner.next();
-            secondCoordinate = scanner.next();
-            error = firstPlayer.checkMap(firstCoordinate, secondCoordinate, name[i], len[i]);
-            if (!error) {
-                firstPlayer.changeMap(firstCoordinate, secondCoordinate);
-            }  else  {
-                i--;
-            }
-        }
-        firstPlayer.printingMap();
+        firstPlayer.setShoot(firstPlayer, scanner);
         promptEnterKey();
 
         System.out.println("Player 2, place your ships on the game field");
-        for (int i = 0; i < name.length; i++) {
-            if (!error) {
-                secondPlayer.printingMap();
-                System.out.println("Enter the coordinates of the " + name[i] + " ("+  len[i] + " cells):");
-            }
-            firstCoordinate = scanner.next();
-            secondCoordinate = scanner.next();
-            error = secondPlayer.checkMap(firstCoordinate, secondCoordinate, name[i], len[i]);
-            if (!error) {
-                secondPlayer.changeMap(firstCoordinate, secondCoordinate);
-            }  else  {
-                i--;
-            }
-        }
-        secondPlayer.printingMap();
+        secondPlayer.setShoot(secondPlayer, scanner);
         promptEnterKey();
 
 
 
         int index = 0;
-        while (firstPlayer.getCount() != 0 || secondPlayer.getCount() != 0) {
+        while (firstPlayer.getCount() != 0 && secondPlayer.getCount() != 0) {
             if (index++  % 2 == 0) {
-                secondFog.printingMap(true);//
-                System.out.println("---------------------");
-                firstPlayer.printingMap();//
-                System.out.println("Player 1, it's your turn:");
-                coordinate = scanner.next();
-                secondPlayer.setCoordinate(coordinate);
-                secondPlayer.Shooting(secondFog);
+                playGame(secondFog, firstPlayer, 1, scanner, secondPlayer);
             } else {
-                firstFog.printingMap(true);//
-                System.out.println("---------------------");
-                secondPlayer.printingMap();//
-                System.out.println("Player 2, it's your turn:");
-                coordinate = scanner.next();
-                firstPlayer.setCoordinate(coordinate);
-                firstPlayer.Shooting(firstFog);
+                playGame(firstFog, secondPlayer, 2, scanner, firstPlayer);
             }
             promptEnterKey();
         }
+        scanner.close();
+    }
+
+    private static void playGame(Shoot Fog, Shoot firstPlayer, int number, Scanner scanner, Shoot secondPlayer) {
+        String coordinate;
+        Fog.printingMapMinusLN();//
+        System.out.println("---------------------");
+        firstPlayer.printingMap();//
+        System.out.println("Player " + number + ", it's your turn:");
+        coordinate = scanner.next();
+        secondPlayer.setCoordinate(coordinate);
+        secondPlayer.Shooting(Fog);
     }
 
 }

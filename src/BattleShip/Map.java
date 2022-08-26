@@ -113,7 +113,7 @@ public class Map {
         System.out.println();
     }
 
-    public void printingMap(Boolean ln) {
+    public void printingMapMinusLN() {
         for (int i = 0; i < this.map.length; i++) {
             for (int j = 0; j < this.map[i].length; j++) {
                 System.out.print(this.map[i][j] + " ");
@@ -123,106 +123,3 @@ public class Map {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        Map firstPlayer = new Map(map);
-//        firstPlayer.printingMap(map);
-//        firstPlayer.changeMap(map, "C5", "C1");
-//        firstPlayer.printingMap(map);
-//        Map secondPlayer = new Map(map);
-//        secondPlayer.printingMap(map);
-//        secondPlayer.changeMap(map, "A1", "A5");
-//        secondPlayer.printingMap(map);
-
-
-
-//package battleship;
-//
-//import java.util.Objects;
-//
-//public class Map {
-////    protected String[][] map = new String[11][11];
-//
-//    public Map(String[][] map) {
-//        for (int i = 0; i < map.length; i++) {
-//            for (int j = 0; j < map[i].length; j++) {
-//                if (i == 0) {
-//                    if (j == 0) {
-//                        map[i][j] = " ";
-//                    } else {
-//                        map[i][j] = String.valueOf(j);
-//                    }
-//                } else {
-//                    if (j == 0) {
-//                        map[i][j] = String.valueOf((char)(64 + i));
-//                    } else {
-//                        map[i][j] = "~";
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//    public void changeMap(String[][] map, String firstCoordinate, String secondCoordinate) {
-//        String[] first = firstCoordinate.trim().split("");
-//        String[] second = secondCoordinate.trim().split("");
-//        System.out.println(Integer.parseInt(map[0][1]));
-//        for (int i = 0; i < map.length; i++) {
-//            for (int j = 0; j < map[i].length; j++) {
-//                if (j != 0) {
-//                    if (Objects.equals(first[0], map[i][0]) && Objects.equals(second[0], map[i][0])
-//                            && Integer.parseInt(first[1]) <= Integer.parseInt(map[0][j])
-//                            && Integer.parseInt(second[1]) >= Integer.parseInt(map[0][j])) {
-//                        map[i][j] = "0";
-//                    } else if (Objects.equals(first[0], map[i][0]) && Objects.equals(second[0], map[i][0])
-//                            && Integer.parseInt(first[1]) >= Integer.parseInt(map[0][j])
-//                            && Integer.parseInt(second[1]) <= Integer.parseInt(map[0][j])) {
-//                        map[i][j] = "0";
-//                    }
-//                }
-//
-////                if (first[0] <= (int) this.map[1][0] && Objects.equals(second[0], this.map[i][0])
-////                        && Integer.parseInt(first[1]) == Integer.parseInt(this.map[0][j])
-////                        && Integer.parseInt(second[1]) == Integer.parseInt(this.map[0][j])) {
-////                    this.map[i][j] = "0";
-////                } else if (Objects.equals(first[0], this.map[1][0]) && Objects.equals(second[0], this.map[i][0])
-////                        && Integer.parseInt(first[1])
-////                        >= Integer.parseInt(this.map[0][j])
-////                        && Integer.parseInt(second[1]) <= Integer.parseInt(this.map[0][j])) {
-////                    this.map[i][j] = "0";
-////                }
-//            }
-//        }
-//    }
-//
-//    public void printingMap(String[][] map) {
-//        for (int i = 0; i < map.length; i++) {
-//            for (int j = 0; j < map[i].length; j++) {
-//                System.out.print(map[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
-//    }
-//
-//}

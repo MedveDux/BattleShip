@@ -2,10 +2,14 @@ package BattleShip;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
+import java.util.Scanner;
 
-    public class Shoot extends Map {
+public class Shoot extends Map {
     protected String coordinate;
     private int count = 17;
+    private String[] name = {"Aircraft Carrier", "Battleship", "Submarine", "Cruiser", "Destroyer"};
+    private int[] len = {5, 4, 3, 3, 2};
+    private boolean error = false;
 
         public int getCount() {
             return this.count;
@@ -62,5 +66,24 @@ import java.util.Objects;
 
     public void setCoordinate(String coordinate) {
         this.coordinate = coordinate;
+    }
+
+    public void setShoot(Shoot Player, Scanner scanner) {
+            String firstCoordinate, secondCoordinate;
+        for (int i = 0; i < name.length; i++) {
+            if (!error) {
+                Player.printingMap();
+                System.out.println("Enter the coordinates of the " + name[i] + " ("+  len[i] + " cells):");
+            }
+            firstCoordinate = scanner.next();
+            secondCoordinate = scanner.next();
+            error = Player.checkMap(firstCoordinate, secondCoordinate, name[i], len[i]);
+            if (!error) {
+                Player.changeMap(firstCoordinate, secondCoordinate);
+            }  else  {
+                i--;
+            }
+        }
+        Player.printingMap();
     }
 }

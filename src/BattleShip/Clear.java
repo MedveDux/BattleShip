@@ -8,19 +8,18 @@ public class Clear {
         System.out.println("Press Enter and pass the move to another player");
         try {
             System.in.read();
-            clearConsole();
+            System.out.print("\033[H\033[2J");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public static void clearConsole(){
-        //Clears Screen in java
-        try {
-            if (System.getProperty("os.name").contains("Windows"))
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            else
-                Runtime.getRuntime().exec("clear");
-        } catch (IOException | InterruptedException ex) {}
-    }
-
+//    public static void clearConsole(){
+//        //Clears Screen in java
+//        try {
+//            if (System.getProperty("os.name").contains("Windows"))
+//                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+//            else
+//                Runtime.getRuntime().exec("clear");
+//        } catch (IOException | InterruptedException ex) {}
+//    }
 }
